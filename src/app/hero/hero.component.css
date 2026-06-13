@@ -1,0 +1,78 @@
+.hero {
+  min-height: 100vh;
+  background-image: linear-gradient(#ffffff1a, #1d1205a7, #1D1205),
+    url('../../assets/image/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+
+  .hero-content {
+    padding-top: 80px;
+  }
+
+  .hero-text {
+    max-width: 600px;
+    animation: fadeIn 1.2s ease forwards;
+    color: white;
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      line-height: 1.2;
+
+      span { color: #DAA754; }
+    }
+
+    p {
+      margin: 20px 0;
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+  }
+
+  .hero-btns {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+  }
+}
+
+.btn-gold {
+  background: #DAA754;
+  color: #2A1A05;
+  border: 2px solid #DAA754;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 6px;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background: #E3BD7F;
+    border-color: #E3BD7F;
+    color: #2A1A05;
+  }
+}
+
+.btn-outline-gold {
+  border: 2px solid #DAA754;
+  color: #DAA754;
+  font-weight: 600;
+  padding: 10px 25px;
+  border-radius: 6px;
+  transition: 0.3s;
+  text-decoration: none;
+
+  &:hover {
+    background: #DAA754;
+    color: #2A1A05;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

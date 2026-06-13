@@ -1,0 +1,30 @@
+<section class="menu-section py-5" id="menu">
+  <div class="container">
+    <h2 class="text-center mb-2">Our Menu</h2>
+    <p class="text-center subtitle mb-5">Crafted with love, served with passion</p>
+
+    <ul class="nav nav-pills justify-content-center mb-5">
+      <li class="nav-item" *ngFor="let cat of categories">
+        <button
+          class="nav-link"
+          [class.active]="selectedCategory === cat"
+          (click)="selectedCategory = cat">
+          {{ cat }}
+        </button>
+      </li>
+    </ul>
+
+    <div class="row g-4">
+      <div class="col-sm-6 col-md-3" *ngFor="let item of getFilteredItems()">
+        <div class="menu-card card h-100">
+          <img [src]="item.image" [alt]="item.name" class="card-img-top">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text text-muted">{{ item.description }}</p>
+            <span class="price">{{ item.price }} TND</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

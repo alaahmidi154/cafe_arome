@@ -1,0 +1,71 @@
+.menu-section {
+  background-color: #4b2e050f;
+  padding: 60px 20px;
+
+  h2 {
+    color: #2A1A05;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: #888;
+    text-align: center;
+  }
+}
+
+.nav-pills .nav-link {
+  color: #2A1A05;
+  border: 2px solid #DAA754;
+  margin: 0 5px;
+  border-radius: 25px;
+  padding: 8px 20px;
+  transition: 0.3s;
+
+  &.active, &:hover {
+    background: #DAA754;
+    color: #2A1A05;
+    font-weight: 600;
+  }
+}
+
+.menu-card {
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  .card-img-top {
+    width: 160px;
+    height: 160px;
+    object-fit: contain; 
+    margin: 0 auto;
+    display: block;
+  }
+
+  .card-title {
+    color: #2A1A05;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  .card-text {
+    color: #666;
+    font-size: 0.9rem;
+  }
+
+  .price {
+    color: #DAA754;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}

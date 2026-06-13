@@ -1,0 +1,52 @@
+.reservation-section {
+  background: #ffffff;
+
+  h2 {
+    color: #2A1A05;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+  }
+
+  .subtitle { color: #888; }
+}
+
+.reservation-form {
+  background: #fdf8f3;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+  .form-label {
+    color: #2A1A05;
+    font-weight: 500;
+  }
+
+  .form-control, .form-select {
+    border: 1px solid #e0d5c5;
+    border-radius: 8px;
+    padding: 10px 15px;
+
+    &:focus {
+      border-color: #DAA754;
+      box-shadow: 0 0 0 3px rgba(218, 167, 84, 0.15);
+    }
+  }
+}
+
+.btn-gold {
+  display: block;
+  width: 100%;
+  background: #DAA754;
+  color: #2A1A05;
+  border: 2px solid #DAA754;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 8px;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: #E3BD7F;
+    border-color: #E3BD7F;
+  }
+}

@@ -1,0 +1,12 @@
+<section class="features py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Why Choose Us</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <i class="bi {{ feature.icon }}"></i>
+        <h4>{{ feature.title }}</h4>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>

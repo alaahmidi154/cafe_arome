@@ -1,0 +1,56 @@
+<section class="reservation-section py-5" id="reservation">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <h2 class="text-center mb-2">Reserve a Table</h2>
+        <p class="text-center subtitle mb-5">Book your spot and we'll have it ready</p>
+
+       <form class="reservation-form" (ngSubmit)="onSubmit()" >
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label">Full Name</label>
+              <input type="text" class="form-control"
+                [(ngModel)]="form.name"
+                name="name" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control"
+                [(ngModel)]="form.email"
+                name="email" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Date</label>
+              <input type="date" class="form-control"
+                [(ngModel)]="form.date"
+                name="date" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Time</label>
+              <input type="time" class="form-control"
+                [(ngModel)]="form.time"
+                name="time" required>
+            </div>
+            <div class="col-md-4">
+              <label class="form-label">Guests</label>
+              <select class="form-select"
+                [(ngModel)]="form.guests"
+                name="guests">
+                <option *ngFor="let n of [1,2,3,4,5,6,7,8]">{{ n }}</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn-gold w-100">
+                Confirm Reservation
+              </button>
+            </div>
+          </div>
+
+          <div class="alert alert-success mt-3" *ngIf="submitted">
+             Reservation confirmed! We'll see you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
