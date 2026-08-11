@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +11,10 @@ import { MenuComponent } from './menu/menu.component';
 import { ReservationComponent } from './reservation/reservation.component';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
+import { AdminReservationsComponent } from './admin-reservations/admin-reservations.component';
+import { LoginAdminComponent } from './login-admin/login-admin.component';
+import { HomeComponent } from './home/home.component';
+import { RouterOutlet } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,13 +25,15 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     ReservationComponent,
     AboutComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
-    HttpClientModule,
+   
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, 
+    RouterOutlet
     
   ],
   providers: [],

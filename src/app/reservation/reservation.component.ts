@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CafeService } from '../services/cafe.service';
 import { FormsModule } from '@angular/forms';
+import { SupabaseService } from '../services/supabase.service';
+
 
 @Component({
   selector: 'app-reservation',
@@ -8,36 +10,35 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./reservation.component.scss']
 })
 export class ReservationComponent {
-  submitted = false;
-
   form = {
     name: '',
     email: '',
     date: '',
     time: '',
-    guests: 2
+    guests: 1
   };
 
-  constructor(private cafeService: CafeService) {}
-
-  onSubmit() {
-  console.log('Form submitted:', this.form);
-  
-  // Log the service to make sure it's injected
-  console.log('Service:', this.cafeService);
-  
-  this.cafeService.submitReservation(this.form).subscribe({
-    next: (res) => {
-      console.log('Success:', res);
-      this.submitted = true;
-      setTimeout(() => this.submitted = false, 4000);
-      // Reset form after success
-      this.form = { name: '', email: '', date: '', time: '', guests: 2 };
-    },
-    error: (err) => {
-      console.error('Error details:', err);
-      alert(`Error: ${err.message}`);
+ isSubmitting = false;
+  constructor(private supabaseService: SupabaseService) {}
+  async onSubmit(formValue: any) {
+    console.log(formValue);
+    
+    this.isSubmitting = true;
+    try {
+      await this.supabaseService.createReservation({
+        name: formValue.name,
+        email: formValue.email,
+        date: formValue.date,
+        time: formValue.time,
+        guests: Number(formValue.guests)
+      });
+      setTimeout(() => this.isSubmitting = false, 4000);
+      this.form = { name: '', email: '', date: '', time: '', guests: 1 };
+      alert('Reservation submitted successfully!');
+    } catch (error: any) {
+      alert('Error submitting reservation: ' + error.message);
+    } finally {
+      this.isSubmitting = false;
     }
-  });
-}
+  }
 }

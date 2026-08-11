@@ -1,0 +1,76 @@
+<div class="admin-container">
+  <header class="admin-header">
+    <h2>Manager Dashboard — Reservations</h2>
+    <button class="btn-refresh" (click)="loadReservations()">Refresh List</button>
+  </header>
+  <!-- Filter & Search Controls -->
+  <div class="controls-bar">
+    <input 
+      type="text" 
+      placeholder="Search by customer name or email..." 
+      [ngModel]="searchQuery()" 
+      (ngModelChange)="searchQuery.set($event)"
+      class="search-input"
+    />
+    <div class="status-filters">
+      <button 
+        *ngFor="let filter of ['All', 'Pending', 'Confirmed', 'Cancelled']"
+        [class.active]="selectedStatusFilter() === filter"
+        (click)="selectedStatusFilter.set(filter)"
+        class="filter-chip">
+        {{ filter }}
+      </button>
+    </div>
+  </div>
+  <!-- Loading State -->
+  <div *ngIf="isLoading()" class="loading-state">Loading reservations...</div>
+  <!-- Table View -->
+  <div *ngIf="!isLoading()" class="table-wrapper">
+    <table class="admin-table">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Date & Time</th>
+          <th>Guests</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let res of filteredReservations()">
+          <td>
+            <div class="customer-name">{{ res.name }}</div>
+            <div class="customer-email">{{ res.email }}</div>
+          </td>
+          <td>
+            <div>{{ res.date }}</div>
+            <div class="time-sub">{{ res.time }}</div>
+          </td>
+          <td>{{ res.guests }} people</td>
+          <td>
+            <span class="badge" [ngClass]="res.status.toLowerCase()">
+              {{ res.status }}
+            </span>
+          </td>
+          <td class="action-buttons">
+            <button 
+              *ngIf="res.status !== 'Confirmed'" 
+              class="btn-confirm" 
+              (click)="changeStatus(res.id, 'Confirmed')">
+            Confirm
+            </button>
+            <button 
+              *ngIf="res.status !== 'Cancelled'" 
+              class="btn-cancel" 
+              (click)="changeStatus(res.id, 'Cancelled')">
+              Cancel
+            </button>
+          </td>
+        </tr>
+        <tr *ngIf="filteredReservations().length === 0">
+          <td colspan="5" class="empty-msg">No matching reservations found.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

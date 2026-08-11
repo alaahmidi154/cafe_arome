@@ -5,7 +5,7 @@
         <h2 class="text-center mb-2">Reserve a Table</h2>
         <p class="text-center subtitle mb-5">Book your spot and we'll have it ready</p>
 
-       <form class="reservation-form" (ngSubmit)="onSubmit()" >
+       <form class="reservation-form" #reservationForm='ngForm' (ngSubmit)="onSubmit(reservationForm.value)" >
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">Full Name</label>
@@ -46,7 +46,7 @@
             </div>
           </div>
 
-          <div class="alert alert-success mt-3" *ngIf="submitted">
+          <div class="alert alert-success mt-3" *ngIf="isSubmitting">
              Reservation confirmed! We'll see you soon.
           </div>
         </form>
