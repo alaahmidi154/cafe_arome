@@ -23,6 +23,13 @@ export class SupabaseService {
   signIn(email: string, password: string) {
     return this.supabase.auth.signInWithPassword({ email, password });
   }
+signOut() {
+  return this.supabase.auth.signOut();
+}
+  async isLoggedIn(): Promise<boolean> {
+  const { data } = await this.supabase.auth.getSession();
+  return !!data.session;
+}
 
   async createReservation(reservation: Reservation) {
     const { data, error } = await this.supabase

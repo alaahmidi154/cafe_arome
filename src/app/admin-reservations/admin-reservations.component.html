@@ -1,7 +1,11 @@
 <div class="admin-container">
+  
   <header class="admin-header">
     <h2>Manager Dashboard — Reservations</h2>
-    <button class="btn-refresh" (click)="loadReservations()">Refresh List</button>
+    <div class="head-actions">
+      <button class="btn-refresh" (click)="loadReservations()">Refresh List</button>
+      <button class="btn-logout" (click)="logOut()">Log out</button>
+    </div>
   </header>
   <!-- Filter & Search Controls -->
   <div class="controls-bar">
@@ -72,5 +76,6 @@
         </tr>
       </tbody>
     </table>
+    
   </div>
 </div>

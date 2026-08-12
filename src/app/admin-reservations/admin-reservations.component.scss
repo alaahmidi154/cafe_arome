@@ -1,75 +1,120 @@
 .admin-container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 2rem auto;
-  padding: 1.5rem;
-  background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  padding: 2rem 2.5rem;
+  background: #fffdfb;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(62, 39, 35, 0.08);
   font-family: system-ui, -apple-system, sans-serif;
 }
+
 .admin-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #ece3dd;
 }
+
 .controls-bar {
   display: flex;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   flex-wrap: wrap;
+  background: #f7f1eb;
+  padding: 1rem;
+  border-radius: 10px;
 }
+
 .search-input {
   flex: 1;
   min-width: 250px;
   padding: 0.6rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #d8c9bc;
+  border-radius: 8px;
+  background: #ffffff;
 }
+
 .status-filters {
   display: flex;
   gap: 0.5rem;
 }
+
 .filter-chip {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  background: #f8f9fa;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid #d8c9bc;
+  background: #ffffff;
   border-radius: 20px;
   cursor: pointer;
 }
+
 .filter-chip.active {
-  background: #3e2723;
+  background: #6f4626;
   color: white;
-  border-color: #3e2723;
+  border-color: #6f4626;
 }
+
 .admin-table {
   width: 100%;
-   border-collapse: collapse;
+  border-collapse: collapse;
   text-align: left;
 }
+
 .admin-table th, .admin-table td {
   padding: 1rem;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ece3dd;
 }
-.customer-name { font-weight: 600; color: #222; }
-.customer-email, .time-sub { font-size: 0.85rem; color: #666; }
+
+.admin-table th {
+  background: #f7f1eb;
+  color: #6f5b4f;
+}
+
+.customer-name { font-weight: 600; color: #3e2723; }
+.customer-email, .time-sub { font-size: 0.85rem; color: #8a7768; }
+
 .badge {
   padding: 0.25rem 0.6rem;
   border-radius: 12px;
   font-size: 0.8rem;
   font-weight: 600;
 }
-.badge.pending { background: #fff3cd; color: #856404; }
-.badge.confirmed { background: #d4edda; color: #155724; }
-.badge.cancelled { background: #f8d7da; color: #721c24; }
+.badge.pending { background: #fdecc8; color: #8a5a13; }
+.badge.confirmed { background: #dcecd7; color: #2e5c26; }
+.badge.cancelled { background: #f6d9d5; color: #8c2f22; }
+
 .action-buttons button {
   padding: 0.4rem 0.8rem;
   margin-right: 0.4rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   font-size: 0.85rem;
 }
-.btn-confirm { background: #2e7d32; color: white; }
-.btn-cancel { background: #c62828; color: white; }
-.btn-refresh { background: #efebe9; border: 1px solid #d7ccc8; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer}
+
+.btn-confirm { background: #3f7a3a; color: white; }
+.btn-cancel { background: #a4342a; color: white; }
+
+.btn-refresh {
+  background: #f7f1eb;
+  border: 1px solid #d8c9bc;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-logout {
+  background: #f7f1eb;
+  border: 1px solid #d8c9bc;
+  padding: 0.5rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  // no more position: absolute
+}
