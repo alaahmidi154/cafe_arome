@@ -42,33 +42,23 @@
       </thead>
       <tbody>
         <tr *ngFor="let res of filteredReservations()">
-          <td>
+          <td data-label="Customer">
             <div class="customer-name">{{ res.name }}</div>
             <div class="customer-email">{{ res.email }}</div>
           </td>
-          <td>
+          <td data-label="Date & Time">
             <div>{{ res.date }}</div>
             <div class="time-sub">{{ res.time }}</div>
           </td>
-          <td>{{ res.guests }} people</td>
-          <td>
+          <td data-label="Guests">{{ res.guests }} people</td>
+          <td data-label="Status">
             <span class="badge" [ngClass]="res.status.toLowerCase()">
               {{ res.status }}
             </span>
           </td>
-          <td class="action-buttons">
-            <button 
-              *ngIf="res.status !== 'Confirmed'" 
-              class="btn-confirm" 
-              (click)="changeStatus(res.id, 'Confirmed')">
-            Confirm
-            </button>
-            <button 
-              *ngIf="res.status !== 'Cancelled'" 
-              class="btn-cancel" 
-              (click)="changeStatus(res.id, 'Cancelled')">
-              Cancel
-            </button>
+          <td data-label="Actions" class="action-buttons">
+            <button *ngIf="res.status !== 'Confirmed'" class="btn-confirm" (click)="changeStatus(res.id, 'Confirmed')">Confirm</button>
+            <button *ngIf="res.status !== 'Cancelled'" class="btn-cancel" (click)="changeStatus(res.id, 'Cancelled')">Cancel</button>
           </td>
         </tr>
         <tr *ngIf="filteredReservations().length === 0">
