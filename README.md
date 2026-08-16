@@ -14,4 +14,8 @@ A modern, full-stack cafe website with a public-facing menu and reservation syst
 
 ## ⚒️ Tech Stack
 
-
+| Layer | Technology |
+|---|---|
+| Frontend | Angular16 |
+| Styling | SCSS, Bootstrap |
+| Backend / Database | Supabase |
